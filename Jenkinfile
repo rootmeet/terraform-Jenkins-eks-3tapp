@@ -62,5 +62,18 @@ pipeline{
                 }
             }
         }
+        stage('Deploy Mongo database'){
+            steps {
+                script {
+                    dir('app/mongo'){
+                        sh 'aws eks update-kubeconfig --name my-eks-cluster'
+                        sh 'kubectl create namespace workshop'                        
+                        sh 'kubectl apply -f deploy.yaml'                        
+                        sh 'kubectl apply -f secrets.yaml'                   
+                        sh 'kubectl apply -f service.yaml'
+                    }
+                }
+            }
+        }
     }
 }
