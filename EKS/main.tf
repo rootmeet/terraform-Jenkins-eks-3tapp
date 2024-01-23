@@ -15,14 +15,14 @@ module "vpc" {
   single_nat_gateway   = true # we need single nat gateway
 
   tags = {
-    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/cluster/three-tier-cluster" = "shared"
   }
   public_subnet_tags = {
-    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/cluster/three-tier-cluster" = "shared"
     "kubernetes.io/role/elb"               = 1
   }
   private_subnet_tags = {
-    "kubernetes.io/cluster/my-eks-cluster" = "shared"
+    "kubernetes.io/cluster/three-tier-cluster" = "shared"
     "kubernetes.io/role/internal-elb"      = 1
   }
 }
@@ -30,8 +30,8 @@ module "vpc" {
 module "eks" {
   source = "terraform-aws-modules/eks/aws"
 
-  cluster_name    = "my-eks-cluster"
-  cluster_version = "1.24"
+  cluster_name    = "three-tier-cluster"
+  cluster_version = "1.25"
 
   cluster_endpoint_public_access = true
 
