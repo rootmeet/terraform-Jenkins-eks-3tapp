@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: sanjeevrisbud/threetier-backend:latest
+        image: public.ecr.aws/u4k4y2r3/threetier-backend:latest
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR

@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: sanjeevrisbud/threetier-frontend:latest
+        image: public.ecr.aws/u4k4y2r3/threetier-frontend:latest
         imagePullPolicy: Always
         env:
           - name: REACT_APP_BACKEND_URL
